@@ -50,6 +50,19 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 5px;
 }
 
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: flex-start; /* Aligns title to the left */
+    padding: 20px; /* Adds some padding around the header */
+}
+
+.blog-title {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    color: #333; /* Set the color */
+    margin: 0; /* Remove default margin */
+}
+
 /* Welcome Section Styles */
 .welcome-container {
     display: flex;
@@ -217,6 +230,20 @@ textarea {
     margin-bottom: 20px;
 }
 
+/* Footer Styles */
+.footer {
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding */
+    background-color: #f8f9fa; /* Optional: change background color */
+    position: relative; /* Optional: ensure positioning context */
+    bottom: 0; /* Optional: stick it to the bottom if you want */
+    width: 100%; /* Make sure it takes full width */
+}
+
+.footer-content {
+    margin: 0 auto; /* Center the content */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .post {
@@ -231,6 +258,10 @@ textarea {
     .welcome-text {
         margin-right: 0;
         margin-bottom: 20px;
+    }
+
+    .header {
+        justify-content: center; /* Center the blog title on smaller screens */
     }
 }
 

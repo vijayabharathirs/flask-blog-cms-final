@@ -3,6 +3,10 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    <div class="header">
+       
+    </div>
+
     <div class="welcome-container">
         <div class="welcome-text">
             <h1>Welcome to My Blog</h1>
@@ -15,14 +19,24 @@
     <div class="post-container">
         {% for post in posts %}
             <div class="post">
-                <!-- Removed the post image section -->
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content | truncate(100) }}</p>
-                <div class="post-buttons">
-                    <a href="/edit/{{ post._id }}" class="edit-button">Edit</a>
-                    <a href="/delete/{{ post._id }}" class="delete-button">Delete</a>
+                <div class="post-content">
+                    <h2><a href="{{ url_for('view_post', post_id=post._id) }}">{{ post.title }}</a></h2>
+                    <p>{{ post.content | truncate(100) }}</p> <!-- Shows only a snippet of the content -->
+                    <a href="{{ url_for('view_post', post_id=post._id) }}" class="read-more">Read more</a> <!-- Link to the full post -->
+                    <div class="post-footer">
+                        <div class="post-buttons">
+                            <a href="/edit/{{ post._id }}" class="edit-button">Edit</a>
+                            <a href="/delete/{{ post._id }}" class="delete-button">Delete</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
 {% endblock %}

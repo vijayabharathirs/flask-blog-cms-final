@@ -37,6 +37,16 @@ def index():
     posts = posts_collection.find()
     return render_template('index.html', posts=posts)
 
+# Route to view a single post by its ID
+@app.route('/post/<post_id>')
+def view_post(post_id):
+    post = posts_collection.find_one({'_id': ObjectId(post_id)})
+    if not post:
+        flash('Post not found!', 'error')
+        return redirect(url_for('index'))
+    
+    return render_template('post.html', post=post)
+
 # Create new post
 @app.route('/create', methods=['GET', 'POST'])
 def create():
